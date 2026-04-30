@@ -61,8 +61,8 @@ Infraestructura de honeypots desplegada en AWS con Terraform, monitorizada por u
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/HoneyCloud-SIEM.git
-cd HoneyCloud-SIEM
+git clone https://github.com/pablocaraballofernandez/Terraform-Honeypot-SIEM.git
+cd Terraform-Honeypot-SIEM
 ```
 
 ### 2. Crear `terraform.tfvars`
