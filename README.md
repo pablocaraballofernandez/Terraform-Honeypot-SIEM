@@ -176,7 +176,7 @@ HoneyCloud-SIEM/
 - **Dionaea** se ejecuta en Docker porque su código fuente utiliza funciones de OpenSSL que fueron eliminadas en la versión 3.0 (incluida en Ubuntu 22.04). Aunque compila sin errores, al ejecutarse produce un crash (segmentation fault). La imagen Docker `dinotools/dionaea` incluye sus propias librerías compatibles, evitando este problema.- **Cowrie** requiere `pip install -e .` para registrarse como plugin de Twisted. Sin esto, `twistd cowrie` falla con "Unknown command".
 - **SNARE** necesita TANNER (servidor de análisis) que no tiene imagen Docker pública disponible. Se usa un script Python custom que sirve la página clonada con Content-Type correcto leyendo `meta.json`.
 - Las reglas de **iptables** se insertan con `-I PREROUTING 1` para que queden antes de la cadena DOCKER.
-- **Logstash 7.x** incluye su propia base de datos GeoIP, no es necesario instalar MaxMind.
+- **Logstash 7.x** incluye su propia base de datos GeoIP.
 
 ## Destruir la infraestructura
 
