@@ -80,7 +80,6 @@ enable_cowrie          = true
 enable_dionaea         = true
 enable_web_honeypot    = true
 ssh_public_key         = "ssh-ed25519 AAAA... tu-clave-publica"
-clave_geo_IP           = "tu-clave-maxmind"
 kibana_basic_auth_user = "honeyadmin"
 elastic_password       = "tu-contraseña-segura"
 ami                    = "ami-0ec2a5ff1be0688fa"
@@ -151,8 +150,8 @@ HoneyCloud-SIEM/
 ├── scripts/
 │   ├── setup_elk.sh.tpl      # Script de instalación del SIEM
 │   └── setup_honeypot.sh.tpl # Script de instalación de honeypots
-├── .gitignore
-└── README.md
+├── README.md
+└── LICENSE.md
 ```
 
 ## Índices en Elasticsearch
