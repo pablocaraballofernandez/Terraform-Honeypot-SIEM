@@ -1,4 +1,4 @@
-# HoneyCloud-SIEM
+# Honeypot-SIEM
 
 Infraestructura de honeypots desplegada en AWS con Terraform, monitorizada por un SIEM centralizado con ELK Stack.
 
