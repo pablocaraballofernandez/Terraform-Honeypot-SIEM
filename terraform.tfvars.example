@@ -17,3 +17,5 @@ kibana_basic_auth_user  = ""
 elastic_password    = ""
 
 ami = ""
+
+ssh_key_path = ""
