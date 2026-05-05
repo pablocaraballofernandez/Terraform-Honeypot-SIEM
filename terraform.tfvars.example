@@ -1,0 +1,19 @@
+region  =  ""
+enviroment  =   ""
+project_name    =   ""
+
+admin_IP =[""]
+
+honeypot_instance_type  =   ""
+elk_instance_type   =   ""
+
+enable_cowrie   =   
+enable_dionaea  =   
+enable_web_honeypot =   
+
+ssh_public_key = ""
+
+kibana_basic_auth_user  = ""
+elastic_password    = ""
+
+ami = ""
