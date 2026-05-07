@@ -38,13 +38,9 @@ sudo -u cowrie -H bash -c '
 
 sudo -u cowrie cp /home/cowrie/cowrie/etc/cowrie.cfg.dist /home/cowrie/cowrie/etc/cowrie.cfg
 
-cat >> /home/cowrie/cowrie/etc/cowrie.cfg <<'COWRIECFG'
-
-[output_jsonlog]
-enabled = true
-logfile = var/log/cowrie/cowrie.json
-epoch_timestamp = false
-COWRIECFG
+sed -i '/\[output_jsonlog\]/,/^\[/ {
+  s/^#\?enabled\s*=.*/enabled = true/
+}' /home/cowrie/cowrie/etc/cowrie.cfg
 
 chown cowrie:cowrie /home/cowrie/cowrie/etc/cowrie.cfg
 
