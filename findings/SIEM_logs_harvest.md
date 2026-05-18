@@ -1,6 +1,8 @@
-Para comprobar la cantidad de incidentes que podrían llegar a un honeypot por el simple hecho de existir en Internet, decidí mantenerlo encendido durante 1 día completo, y encontramos alguna curiosidad:
+# Introducción
 
-Llegó una cantidad de incidentes realmente abrumadora para solo a ver estado durante un día y sin siquiera pertenecer a un sitio con alguna operatividad:
+Para comprobar la cantidad de incidentes que podrían llegar a un honeypot por el simple hecho de existir en Internet, decidí mantenerlo encendido durante un fin de semana completo, y encontramos alguna curiosidad:
+
+Llegó una cantidad de incidentes realmente abrumadora para solo haber permanecido activo durante un día y sin siquiera pertenecer a un sitio con alguna operatividad:
 
 ![Imágenes](Images/1.png)
 
@@ -10,7 +12,7 @@ Para ello creé un pequeño dashboard para ver los datos que para este lab me pa
 
 Aquí se puede observar varias cosas: 
 
-Análisis del Dashboard del Honeypot
+# Análisis del Dashboard del Honeypot
 
 ## Volumen de actividad por servicio
 El dato más llamativo es la diferencia brutal entre servicios. Dionaea acumula 528.341 registros frente a los apenas 410 de web y 123 de Cowrie. Esto indica que los atacantes están focalizando sus esfuerzos en los protocolos de red que monitoriza Dionaea (SMB, FTP, HTTP, MySQL, entre otros) más que en SSH. Es un patrón típico de bots automatizados que escanean puertos en busca de servicios vulnerables conocidos, especialmente SMB que históricamente ha sido muy explotado con vulnerabilidades como EternalBlue.
