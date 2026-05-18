@@ -10,12 +10,18 @@ Llegó una cantidad de incidentes realmente abrumadora para solo haber permaneci
 
 **Fecha:** 15 de mayo 2026 — 18 de mayo 2026 (fin de semana)
 
+![Imágenes](Images/1.png)
+
 **Infraestructura desplegada:**
 
 - Cowrie (SSH honeypot) — Puerto 22
 - Dionaea (malware honeypot) — Puertos 21, 445, 3306, 1433
 - Web Honeypot — Puerto 80
 - ELK SIEM para monitorización centralizada
+
+**Dashboard**
+
+![Imágenes](Images/2.png)
 
 ---
 
@@ -48,7 +54,9 @@ Este patrón es típico de un nuevo servicio expuesto a internet: los escáneres
 | China | ~1.150 | Segundo mayor origen, concentrado en Beijing, Shanghai y Shenzhen |
 | Singapur | ~800 | Importante nodo de tráfico en Asia-Pacífico |
 | India | ~600 | Distribuido entre Ahmedabad, Bengaluru y Chennai |
-| Hong Kong | ~400 | Hub de tráfico asiático |
+| Hong Kong | ~400 | Hub de tráfico asiático |  
+
+![Imágenes](Images/3.png)
 
 ### Ciudades más activas
 
@@ -90,14 +98,16 @@ El alto número de IPs únicas con cientos de intentos cada una indica la presen
 | pakchoi | Kermit123@ | 4 | Credencial de botnet IoT |
 | pi | 1234 | 1 | Targeting de Raspberry Pi |
 | support | support | 2 | Credenciales de soporte por defecto |
-| (varios) | 123456 | 6 | Contraseña más común del mundo |
+| (varios) | 123456 | 6 | Contraseña más común del mundo |  
+
+![Imágenes](Images/4.png)
 
 **Hallazgos clave:**
 
-- La combinación `root/3245gs5662d34` con 186 intentos indica una **campaña coordinada de botnet** que usa credenciales hardcodeadas, probablemente una variante de Mirai o similar.
-- El usuario `brengoziscute` con contraseña `0day.today` sugiere atacantes vinculados a la comunidad de compraventa de exploits.
-- El targeting de `pi` (Raspberry Pi) y `ubuntu` muestra que los atacantes buscan activamente dispositivos IoT y servidores cloud.
-- Las combinaciones `admin/admin`, `test/test` y `support/support` son ataques oportunistas buscando credenciales por defecto.
+- La combinación root/3245gs5662d34 con 186 intentos indica una campaña coordinada de botnet que usa credenciales hardcodeadas, probablemente una variante de Mirai o similar.
+- El usuario brengoziscute con contraseña 0day.today sugiere atacantes vinculados a la comunidad de compraventa de exploits.
+- El targeting de pi (Raspberry Pi) y ubuntu muestra que los atacantes buscan activamente dispositivos IoT y servidores cloud.
+- Las combinaciones admin/admin, test/test y support/support son ataques oportunistas buscando credenciales por defecto.
 
 ---
 
@@ -111,7 +121,9 @@ El alto número de IPs únicas con cientos de intentos cada una indica la presen
 | 152.32.226.205 | 46 | — |
 | 155.94.139.220 | 46 | — |
 | 120.48.152.13 | 26 | — |
-| 204.76.203.206 | 15 | — |
+| 204.76.203.206 | 15 | — |  
+
+![Imágenes](Images/5.png)
 
 ### Rutas más escaneadas
 
@@ -124,14 +136,16 @@ El alto número de IPs únicas con cientos de intentos cada una indica la presen
 | `/.aws/credentials?v=2WSJW` | 1 | Intento de robo de credenciales AWS |
 | `/.aws/credentials?v=GJKmQ` | 1 | Intento de robo de credenciales AWS |
 | `/.env.backup` | 1 | Búsqueda de backups de configuración |
-| `/.env.backup?v=fKYWS` | 1 | Variante con cache-busting |
+| `/.env.backup?v=fKYWS` | 1 | Variante con cache-busting |  
+
+![Imágenes](Images/6.png)
 
 **Hallazgos clave:**
 
-- El ataque más frecuente fue la búsqueda de archivos **`.env`**, que en frameworks como Laravel o Node.js contienen credenciales de base de datos, claves API y secretos. Este es actualmente uno de los vectores de ataque más comunes en la web.
-- Los intentos de acceso a **`/.aws/credentials`** son particularmente peligrosos: buscan archivos de credenciales de Amazon Web Services que podrían dar acceso completo a la infraestructura cloud de la víctima.
-- El ataque a **`/boaform/admin/formLogin`** explota una vulnerabilidad conocida en servidores web Boa, comúnmente usado en routers y dispositivos IoT.
-- La presencia de **`/.env.backup`** indica atacantes sofisticados que saben que los administradores a veces renombran archivos sensibles en vez de eliminarlos.
+- El ataque más frecuente fue la búsqueda de archivos .env, que en frameworks como Laravel o Node.js contienen credenciales de base de datos, claves API y secretos. Este es actualmente uno de los vectores de ataque más comunes en la web.
+- Los intentos de acceso a /.aws/credentials son particularmente peligrosos: buscan archivos de credenciales de Amazon Web Services que podrían dar acceso completo a la infraestructura cloud de la víctima.
+- El ataque a /boaform/admin/formLogin explota una vulnerabilidad conocida en servidores web Boa, comúnmente usado en routers y dispositivos IoT.
+- La presencia de /.env.backup indica atacantes sofisticados que saben que los administradores a veces renombran archivos sensibles en vez de eliminarlos.
 
 ### User-Agents detectados
 
@@ -143,7 +157,9 @@ El alto número de IPs únicas con cientos de intentos cada una indica la presen
 | Mozilla/5.0 (iPhone) | 15 | Simulando dispositivo móvil |
 | CensysInspect/1.1 | 9 | Escáner legítimo de Censys |
 
-El User-Agent más frecuente, **`libredtail-http`**, es una herramienta de escaneo automatizado. La presencia de **CensysInspect** confirma que escáneres legítimos de seguridad también indexaron el honeypot, lo cual es esperado.
+El User-Agent más frecuente, libredtail-http, es una herramienta de escaneo automatizado. La presencia de CensysInspect confirma que escáneres legítimos de seguridad también indexaron el honeypot, lo cual es esperado.  
+
+![Imágenes](Images/7.png)
 
 ---
 
@@ -164,7 +180,9 @@ El User-Agent más frecuente, **`libredtail-http`**, es una herramienta de escan
 
 El volumen extraordinariamente alto de eventos en Dionaea (más de 472.000) se debe principalmente a escaneos automatizados de puertos SMB (445), MySQL (3306) y FTP (21). La mayoría son bots que escanean rangos de IP completos buscando servicios vulnerables.
 
-Los orígenes en **DigitalOcean**, **Linode** y **AWS** sugieren servidores cloud comprometidos que se usan como plataformas de lanzamiento de ataques.
+Los orígenes en DigitalOcean, Linode y AWS sugieren servidores cloud comprometidos que se usan como plataformas de lanzamiento de ataques.  
+
+![Imágenes](Images/8.png)
 
 ---
 
