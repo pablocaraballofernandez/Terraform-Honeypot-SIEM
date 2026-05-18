@@ -2,9 +2,7 @@
 
 ## Introducción
 
-Para comprobar la cantidad de incidentes que podrían llegar a un honeypot por el simple hecho de existir en Internet, decidí mantenerlo encendido durante un fin de semana completo, y encontramos alguna curiosidad:
-
-Llegó una cantidad de incidentes realmente abrumadora para solo haber permanecido activo durante un fin de semana y sin siquiera pertenecer a un sitio con alguna operatividad.
+Para comprobar la cantidad de incidentes que podrían llegar a un honeypot por el simple hecho de existir en Internet, decidí mantenerlo en funcionamiento durante un fin de semana completo.
 
 ## Período de análisis
 
