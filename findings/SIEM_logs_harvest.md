@@ -197,16 +197,3 @@ Los orígenes en DigitalOcean, Linode y AWS sugieren servidores cloud comprometi
 4. **Los atacantes buscan activamente credenciales cloud.** Los intentos de acceso a /.aws/credentials y /.env demuestran que los atacantes modernos priorizan el robo de credenciales de servicios cloud sobre la compromisión directa de servidores.
 
 5. **La infraestructura cloud se usa como plataforma de ataque.** Muchas IPs atacantes pertenecen a proveedores como AWS, DigitalOcean y Linode, lo que indica que los atacantes utilizan servidores cloud (propios o comprometidos) para lanzar sus campañas.
-
----
-
-## Recomendaciones de seguridad
-
-Basándose en los ataques observados, se recomienda para entornos de producción:
-
-- **Nunca usar credenciales por defecto** en ningún servicio (SSH, bases de datos, paneles web).
-- **No exponer archivos .env ni credenciales AWS** en servidores web. Configurar reglas en el servidor web para bloquear el acceso a estos archivos.
-- **Implementar fail2ban** o herramientas similares para bloquear IPs tras múltiples intentos fallidos de login.
-- **Deshabilitar el acceso SSH con contraseña** y usar exclusivamente autenticación por clave pública.
-- **Mantener los servicios actualizados** para evitar la explotación de vulnerabilidades conocidas como la de Boa.
-- **Monitorizar el tráfico saliente** para detectar si un servidor propio ha sido comprometido y se está usando como plataforma de ataque.
