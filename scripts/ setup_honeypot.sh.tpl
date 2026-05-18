@@ -102,6 +102,18 @@ docker run -d --name dionaea \
   -v /opt/dionaea/var/lib:/opt/dionaea/var/lib \
   dinotools/dionaea
 
+sleep 15
+touch /opt/dionaea/var/lib/dionaea/dionaea.json
+chmod 666 /opt/dionaea/var/lib/dionaea/dionaea.json
+docker exec dionaea bash -c 'cat > /opt/dionaea/etc/dionaea/ihandlers-enabled/log_json.yaml << EOF
+- name: log_json
+  config:
+    flat_data: true
+    handlers:
+      - file:///opt/dionaea/var/lib/dionaea/dionaea.json
+EOF'
+docker restart dionaea
+
 echo "[OK] Dionaea (Docker) instalado"
 %{ endif }
 
@@ -231,13 +243,11 @@ filebeat.inputs:
     fields:
       honeypot_type: cowrie
     fields_under_root: false
-    json.keys_under_root: false
 
   - type: log
     enabled: ${enable_dionaea}
     paths:
-      - /opt/dionaea/var/log/dionaea/*.json
-      - /opt/dionaea/var/log/dionaea/dionaea.log
+      - /opt/dionaea/var/log/dionaea/dionaea.json
     fields:
       honeypot_type: dionaea
     fields_under_root: false
